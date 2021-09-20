@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="@dimen/margin_20"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+
+        app:cardCornerRadius="10dp"
+        app:cardElevation="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <ImageView
+        app:cardCornerRadius="10dp"
+            app:srcCompat="@drawable/gump_movie"
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/avatar"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:maxLines="3"
+        android:padding="15dp"
+        android:shadowColor="#FF5722"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:text="@string/long_text"
+        android:textAlignment="center"
+        android:textColor="#85E91E63"
+        android:textSize="15sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif"
+
+        />
+
+    <Button
+        android:id="@+id/btn_main"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/margin_30"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+
+        android:textColor="#85E91E63"
+        android:text="@string/toast"
+        android:textSize="20sp" />
+    <!--        android:background="@drawable/ripple_item"-->
+
+</FrameLayout>

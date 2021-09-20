@@ -9,8 +9,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../../../Java/SFAndroid/Android_UI/Module_19" />
-            <option value="$PROJECT_DIR$/../../../../Java/SFAndroid/Android_UI/Module_19/app" />
+            <option value="$PROJECT_DIR$/../../../../Java/SFAndroid/Android_UI/Mod19" />
+            <option value="$PROJECT_DIR$/../../../../Java/SFAndroid/Android_UI/Mod19/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
