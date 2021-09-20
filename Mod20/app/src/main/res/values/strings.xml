@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mod20</string>
+    <string name="long_text">My mom always said life was like a box of chocolates. You never know what you\'re gonna get</string>
+    <string name="button_text">Button</string>
+    <string name="avatar">Avatar</string>
+    <string name="toast">Toast</string>
+</resources>
