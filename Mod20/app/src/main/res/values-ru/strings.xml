@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Мод20</string>
+    <string name="long_text">Моя мама всегда говорила, что жизнь похожа на коробку конфет - никогда не знаешь, что внутри.</string>
+    <string name="button_text">Кнопка</string>
+    <string name="avatar">Аватар</string>
+</resources>
