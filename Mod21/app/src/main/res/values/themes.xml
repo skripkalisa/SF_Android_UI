@@ -1,0 +1,48 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Mod21" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.MyTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">#00ffff</item>
+        <item name="colorPrimaryDark">#007777</item>
+        <item name="colorSecondary">#ff00ff</item>
+        <item name="colorOnSecondary">#00ff00</item>
+        <item name="colorAccent">#FF7777</item>
+<!--        <item name="android:textSize">25sp</item>-->
+    </style>
+
+
+    <style name="Theme.MyTheme.NewButton" parent="ThemeOverlay.MaterialComponents">
+        <item name="colorPrimary">@android:color/holo_orange_dark</item>
+    </style>
+
+
+    <style name="Theme.MyTheme.RoundButton" parent="Widget.MaterialComponents.Button">
+        <item name="colorPrimary">@android:color/holo_orange_dark</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="backgroundTint">@android:color/holo_orange_dark</item>
+    </style>
+
+<style name="TextShadow" parent="@android:style/TextAppearance">
+   <item name="android:shadowDy">5</item>
+   <item name="android:shadowDx">5</item>
+   <item name="android:shadowRadius">5</item>
+   <item name="android:shadowColor">@android:color/black</item>
+</style>
+
+
+
+
+</resources>
