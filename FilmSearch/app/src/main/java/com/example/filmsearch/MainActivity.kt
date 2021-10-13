@@ -21,16 +21,11 @@ class MainActivity : AppCompatActivity() {
 
         navBarClicks()
 
-        nightModeOn()
+
 
     }
 
-    private fun nightModeOn() {
-        val buttonNight = findViewById<Button>(R.id.button_night_mode)
-        buttonNight.setOnClickListener {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-    }
+
 
     private fun navBarClicks() {
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
