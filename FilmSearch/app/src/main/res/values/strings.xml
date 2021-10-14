@@ -13,4 +13,6 @@
     <string name="movie_poster_9" />
     <string name="image">Image</string>
     <string name="floatingactionbutton">FloatingActionButton</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
