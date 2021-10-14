@@ -11,4 +11,6 @@
     <string name="movie_poster_7" />
     <string name="movie_poster_8" />
     <string name="movie_poster_9" />
+    <string name="image">Image</string>
+    <string name="floatingactionbutton">FloatingActionButton</string>
 </resources>
