@@ -1,17 +1,16 @@
 package com.example.filmsearch
 
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    @RequiresApi(Build.VERSION_CODES.M)
+
+
+//    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -20,16 +19,49 @@ class MainActivity : AppCompatActivity() {
         topBarClicks()
 
         navBarClicks()
+        //Зупускаем фрагмент при старте
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_placeholder, HomeFragment())
+            .addToBackStack(null)
+            .commit()
 
-        nightModeOn()
+
 
     }
+override fun onBackPressed() {
+   super.onBackPressed()
+    AlertDialog.Builder(this)
+   .setTitle("Exit the app?")
+   .setIcon(R.drawable.ic_baseline_flip_to_back_24)
+   .setPositiveButton("OK") { _, _ ->
+       finish()
+   }
+   .setNegativeButton("No") { _, _ ->
 
-    private fun nightModeOn() {
-        val buttonNight = findViewById<Button>(R.id.button_night_mode)
-        buttonNight.setOnClickListener {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
+   }
+   .setNeutralButton("Not sure") { _, _ ->
+       Toast.makeText(this, "Good choice!", Toast.LENGTH_SHORT).show()
+   }
+   .show()
+}
+
+    fun launchDetailsFragment(film: Film) {
+        //Создаем "посылку"
+        val bundle = Bundle()
+        //Кладем наш фильм в "посылку"
+        bundle.putParcelable("film", film)
+        //Кладем фрагмент с деталями в перменную
+        val fragment = DetailsFragment()
+        //Прикрепляем нашу "посылку" к фрагменту
+        fragment.arguments = bundle
+
+        //Запускаем фрагмент
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun navBarClicks() {
