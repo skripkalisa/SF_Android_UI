@@ -2,6 +2,7 @@ package com.example.filmsearch
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -28,6 +29,23 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+override fun onBackPressed() {
+   super.onBackPressed()
+    AlertDialog.Builder(this)
+   .setTitle("Exit the app?")
+   .setIcon(R.drawable.ic_baseline_flip_to_back_24)
+   .setPositiveButton("OK") { _, _ ->
+       finish()
+   }
+   .setNegativeButton("No") { _, _ ->
+
+   }
+   .setNeutralButton("Not sure") { _, _ ->
+       Toast.makeText(this, "Good choice!", Toast.LENGTH_SHORT).show()
+   }
+   .show()
+}
+
     fun launchDetailsFragment(film: Film) {
         //Создаем "посылку"
         val bundle = Bundle()
