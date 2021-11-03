@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_home.*
+import androidx.recyclerview.widget.RecyclerView
+import com.example.filmsearch.databinding.FragmentHomeBinding
+
+//import kotlinx.android. .main.fragment_home.*
 
 
 class HomeFragment : Fragment() {
-
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
+
     private val filmsDataBase = listOf(
         Film(
             "The Shawshank Redemption",
@@ -73,16 +76,20 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        lateinit var binding: FragmentHomeBinding
+//        val mainRecycler = binding.mainRecyclerView
+        val mainRecycler = view.findViewById<RecyclerView>(R.id.main_recycler_view)
         //находим наш RV
-        main_recycler.apply {
-            filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
-                override fun click(film: Film) {
-                    (requireActivity() as MainActivity).launchDetailsFragment(film)
-                }
-            })
+        mainRecycler.apply {
+            filmsAdapter =
+                FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
+                    override fun click(film: Film) {
+                        (requireActivity() as MainActivity).launchDetailsFragment(film)
+                    }
+                })
             //Присваиваем адаптер
             adapter = filmsAdapter
             //Присвои layoutmanager
@@ -94,8 +101,4 @@ class HomeFragment : Fragment() {
         //Кладем нашу БД в RV
         filmsAdapter.addItems(filmsDataBase)
     }
-
-
-
-
 }

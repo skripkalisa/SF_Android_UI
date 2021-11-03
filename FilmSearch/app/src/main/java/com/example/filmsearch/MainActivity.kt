@@ -2,21 +2,19 @@ package com.example.filmsearch
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
 
-//    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        topBarClicks()
+        // ToDo initNavigation()
+//        topBarClicks()
 
         navBarClicks()
         //Зупускаем фрагмент при старте
@@ -25,26 +23,24 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.fragment_placeholder, HomeFragment())
             .addToBackStack(null)
             .commit()
-
-
-
     }
-override fun onBackPressed() {
-   super.onBackPressed()
-    AlertDialog.Builder(this)
-   .setTitle("Exit the app?")
-   .setIcon(R.drawable.ic_baseline_flip_to_back_24)
-   .setPositiveButton("OK") { _, _ ->
-       finish()
-   }
-   .setNegativeButton("No") { _, _ ->
 
-   }
-   .setNeutralButton("Not sure") { _, _ ->
-       Toast.makeText(this, "Good choice!", Toast.LENGTH_SHORT).show()
-   }
-   .show()
-}
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//        AlertDialog.Builder(this)
+//            .setTitle("Exit the app?")
+//            .setIcon(R.drawable.ic_baseline_flip_to_back_24)
+//            .setPositiveButton("OK") { _, _ ->
+//                finish()
+//            }
+//            .setNegativeButton("No") { _, _ ->
+//
+//            }
+//            .setNeutralButton("Not sure") { _, _ ->
+//                Toast.makeText(this, "Good choice!", Toast.LENGTH_SHORT).show()
+//            }
+//            .show()
+//    }
 
     fun launchDetailsFragment(film: Film) {
         //Создаем "посылку"
@@ -66,11 +62,15 @@ override fun onBackPressed() {
 
     private fun navBarClicks() {
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigation.setOnNavigationItemSelectedListener() {
+        bottomNavigation.setOnNavigationItemSelectedListener {
 
             when (it.itemId) {
                 R.id.favorites -> {
-                    Toast.makeText(this, "Favorites", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_placeholder, FavoritesFragment())
+                        .addToBackStack(null)
+                        .commit()
                     true
                 }
                 R.id.watch_later -> {
@@ -86,18 +86,18 @@ override fun onBackPressed() {
         }
     }
 
-    private fun topBarClicks() {
-        val topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)
-        topAppBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.settings -> {
-                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
-        }
-    }
+//    private fun topBarClicks() {
+//        val topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)
+//        topAppBar.setOnMenuItemClickListener {
+//            when (it.itemId) {
+//                R.id.settings -> {
+//                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
+//    }
 }
 
 

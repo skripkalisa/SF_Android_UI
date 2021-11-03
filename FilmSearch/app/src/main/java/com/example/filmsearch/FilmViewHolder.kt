@@ -1,17 +1,19 @@
 package com.example.filmsearch
 
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.film_item.view.*
+//import kotlinx.android.synthetic.main.film_item.view.*
 
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
-class FilmViewHolder(private val
-                     itemView: View) : RecyclerView.ViewHolder(itemView) {
+class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
    //Привязываем View из layout к переменным
-   private val title = itemView.title
-   private val poster = itemView.poster
-   private val description = itemView.description
+   private val title = itemView.findViewById<TextView>(R.id.title)
+//   private val title = itemView.title
+   private val poster = itemView.findViewById<ImageView>(R.id.poster)
+   private val description = itemView.findViewById<TextView>(R.id.description)
 
    //В этом методе кладем данные из Film в наши View
    fun bind(film: Film) {
