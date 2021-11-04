@@ -9,12 +9,8 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // ToDo initNavigation()
-//        topBarClicks()
 
         navBarClicks()
         //Зупускаем фрагмент при старте
@@ -25,22 +21,6 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-//    override fun onBackPressed() {
-//        super.onBackPressed()
-//        AlertDialog.Builder(this)
-//            .setTitle("Exit the app?")
-//            .setIcon(R.drawable.ic_baseline_flip_to_back_24)
-//            .setPositiveButton("OK") { _, _ ->
-//                finish()
-//            }
-//            .setNegativeButton("No") { _, _ ->
-//
-//            }
-//            .setNeutralButton("Not sure") { _, _ ->
-//                Toast.makeText(this, "Good choice!", Toast.LENGTH_SHORT).show()
-//            }
-//            .show()
-//    }
 
     fun launchDetailsFragment(film: Film) {
         //Создаем "посылку"
@@ -62,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun navBarClicks() {
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigation.setOnNavigationItemSelectedListener {
+        bottomNavigation.setOnItemSelectedListener {
 
             when (it.itemId) {
                 R.id.favorites -> {
@@ -85,19 +65,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-//    private fun topBarClicks() {
-//        val topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)
-//        topAppBar.setOnMenuItemClickListener {
-//            when (it.itemId) {
-//                R.id.settings -> {
-//                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-//    }
 }
-
-
