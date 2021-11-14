@@ -14,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.filmsearch.databinding.FragmentHomeBinding
 import java.util.*
 
 //import kotlinx.android. .main.fragment_home.*
@@ -21,7 +22,7 @@ import java.util.*
 
 class HomeFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-
+private lateinit var binding: FragmentHomeBinding
     private val filmsDataBase = listOf(
         Film(
             "The Shawshank Redemption",
@@ -95,21 +96,19 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val homeFragmentRoot = view.findViewById<ConstraintLayout>(R.id.home_fragment_root)
         AnimationHelper.performFragmentCircularRevealAnimation(
-            homeFragmentRoot,
+            binding.homeFragmentRoot,
             requireActivity(),
             1
         )
 
-        sceneTransition(homeFragmentRoot)
+        sceneTransition(binding.homeFragmentRoot)
 
         initSearchView(view)
 
