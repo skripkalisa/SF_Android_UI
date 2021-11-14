@@ -2,10 +2,9 @@
 
 # Профессия Android-разработчик
 
-### Раздел "Программирование на Java"
+### Раздел "Основы Android UI"
 
 ## Содержание
-
 
 - [FilmSearch Android app](https://github.com/skripkalisa/SF_Android_UI/tree/main/FilmSearch)
 

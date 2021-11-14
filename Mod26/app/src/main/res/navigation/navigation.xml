@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/mainActivity">
+
+    <navigation android:id="@+id/navigation2" />
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="com.example.mod26.OneFragment"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one" />
+    <fragment
+        android:id="@+id/threeFragment"
+        android:name="com.example.mod26.ThreeFragment"
+        android:label="fragment_three"
+        tools:layout="@layout/fragment_three" />
+    <fragment
+        android:id="@+id/twoFragment"
+        android:name="com.example.mod26.TwoFragment"
+        android:label="fragment_two"
+        tools:layout="@layout/fragment_two" />
+</navigation>
